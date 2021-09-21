@@ -1,2 +1,3 @@
 # react-practice
-Created with CodeSandbox
+
+# 1.ボタンを押すと子コンポーネントが表示される

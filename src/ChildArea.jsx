@@ -1,19 +1,29 @@
+//memoをいれることでpropsが変更されない限り再レンダリングをしない
+import { memo } from "react";
+
 const style = {
   width: "100%",
   height: "200px",
   backgroundColor: "khaki"
 };
 
-export const ChildAre = (props) => {
-  const { open } = props;
+export const ChildAre = memo((props) => {
+  const { open, onClickClose } = props;
+  console.log("レンダリングされた");
+  const data = [...Array(500).keys()];
+  data.forEach(() => {
+    console.log("...");
+  });
+
   return (
     <>
       {/* {open? (): ()} trueであれば左をレンダリング、falseであれば右をレンダリング */}
       {open ? (
         <div style={style}>
           <p>子コンポーネント</p>
+          <button onClick={onClickClose}>閉じる</button>
         </div>
       ) : null}
     </>
   );
-};
+});
